@@ -22,10 +22,6 @@ ipranges={"CLOUDFRONT_GLOBAL_IP_LIST": ["120.52.22.96/27", "205.251.249.0/24", "
  
 frstarray=ipranges["CLOUDFRONT_GLOBAL_IP_LIST"]
 secondarray=ipranges["CLOUDFRONT_REGIONAL_EDGE_IP_LIST"]
-def save(x):
-	with open('wrCloudfrontIp.txt','a') as fl:
-		fl.write(str(x)+'\n')
-		fl.close()
 
 def scanner(host):
 	sock=socket.socket()
@@ -43,7 +39,7 @@ def scanner(host):
 				try:
 					if data[1] ==' CloudFront':
 						print('{}server : {}\nFound working {}..'.format(G,host,GR))
-						save(host)
+						with open('wrCloudfrontIp.txt','a') as fl:fl.write(str(host)+'\n');fl.close()
 				except Exception as e:
 					print(e)
 	except Exception as e:print(e)
