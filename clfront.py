@@ -53,8 +53,7 @@ def Main():
 	dicts=[frstarray,secondarray]
 	choose = int(input('enter dict number of cloudront ipranges (1/2) : '.title()))-1
 	cidrs_list = dicts[choose]
-	for ips in range(len(dicts[int(choose)])):	
-		for cidr in cidrs_list:
+	for cidr in cidrs_list:
 			iprange=[]
 			for ip in ipcalc.Network(cidr):
 				iprange.append(ip)
